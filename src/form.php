@@ -19,16 +19,16 @@
             <input type="number" id="age" name="age">
         </div>
         <div class="form_group">
-            <label for="tel">電話番号:</label>
-            <input type="text" id="tel" name="tel">
+            <label for="phone">電話番号:</label>
+            <input type="text" id="phone" name="phone">
         </div>
         <div class="form_group">
             <label for="email">メールアドレス:</label>
             <input type="email" id="email" name="email">
         </div>
         <div class="form_group">
-            <label for="home">住所:</label>
-            <input type="text" id="home" name="home">
+            <label for="address">住所:</label>
+            <input type="text" id="address" name="address">
         </div>
         <div class="form_group">
             <label for="question">質問:</label>
@@ -41,6 +41,8 @@
                 <option values="female">女性</option>
                 <option values="other">その他・答えたくない</option>
             </select>
+        </div>
+        <button type="submit">送信</button>
     </form>
 </body>
 </html>
