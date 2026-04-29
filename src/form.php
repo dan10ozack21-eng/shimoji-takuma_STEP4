@@ -8,8 +8,7 @@
 </head>
 <body>
     <h1>フォーム入力</h1>
-    <form>
-        <form action="confirm.php" method="POST">
+    <form action="confirm.php" method="POST">
         <div class="form_group">
                 <label for="name">名前:</label>
                 <input type="text" id="name" name="name">
@@ -37,9 +36,9 @@
         <div class="form_group">
             <label for="gender">性別:</label>
             <select id="gender" name="gender">
-                <option values="male">男性</option>
-                <option values="female">女性</option>
-                <option values="other">その他・答えたくない</option>
+                <option value="male">男性</option>
+                <option value="female">女性</option>
+                <option value="other">その他・答えたくない</option>
             </select>
         </div>
         <button type="submit">送信</button>

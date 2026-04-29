@@ -7,7 +7,10 @@
 <body>
     <h1>入力内容の確認</h1>
     <?php
-    if($_SERVER["REQUEST_METHOD" == "POST"]) {
+    $name = $age = $phone = $email = $address = $question = $gender = "";
+    $errors = [];
+
+    if($_SERVER["REQUEST_METHOD"] == "POST") {
         $name = $_POST["name"];
         $age = $_POST["age"];
         $phone = $_POST["phone"];
@@ -16,18 +19,19 @@
         $question = $_POST["question"];
         $gender = $_POST["gender"];
 
+        $errors = [];
+
         if(!preg_match("/^[ぁ-んァ-ヶー一-龠a-zA-Z 　]+$/u", $name)) {
-            echo "<p>お名前はひらがな・カタカナ・漢字・英字のみをご使用ください。</p>";
+            $errors[] = "お名前はひらがな・カタカナ・漢字・英字のみをご使用ください。";
         } elseif (!is_numeric($age) || $age < 0 || $age > 150) {
-            echo "<p>ご年齢は0から150の間でご入力ください。</p>";
+            $errors[] = "ご年齢は0から150の間でご入力ください。";
         } elseif (!preg_match("/^[0-9-]+$/", $phone)) {
-            echo "<p>ご連絡先は半角数字とハイフン(半角)のみ使用可能です。</p>";
+            $errors[] = "ご連絡先は半角数字とハイフン(半角)のみ使用可能です。";
         } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-            echo "<p>メールアドレスの形式が正しくありません。</p>";
-        } elseif (!preg_match("/^[ぁ-んァ-ヶー一-龠a-zA-Z 　]+$/u", $address)) {
-            echo "<p>住所はひらがな・カタカナ・漢字・英字のみをご使用ください。</p>";
-        }
-    } else {
+            $errors[] = "メールアドレスの形式が正しくありません。";
+        } elseif (!preg_match("/^[ぁ-んァ-ヶー一-龠a-zA-Z0-9 　]+$/u", $address)) {
+            $errors[] = "住所はひらがな・カタカナ・漢字・英字のみをご使用ください。";
+        } elseif (empty($errors)) {
         echo "<p>お名前:" . htmlspecialchars($name, ENT_QUOTES, 'UTF-8') . "</p>";
         echo "<p>ご年齢:" . htmlspecialchars($age, ENT_QUOTES, "UTF-8") . "</p>";
         echo "<p>ご連絡先:" . htmlspecialchars($phone, ENT_QUOTES, "UTF-8") . "</p>";
@@ -35,6 +39,7 @@
         echo "<p>ご住所:" . htmlspecialchars($address, ENT_QUOTES, "UTF-8") . "</p>";
         echo "<p>ご質問:" . htmlspecialchars($question, ENT_QUOTES, "UTF-8") . "</p>";
         echo "<p>性別" . htmlspecialchars($gender, ENT_QUOTES, "UTF-8") . "</p>";
+        }
     } else {
         echo "<p>データが送信されていません。</p>";
     }
