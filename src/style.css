@@ -1,0 +1,64 @@
+body {
+    font-family: "Hiragino Kaku Gothic Interface", "BIZ UDPGothic", "Noto Sans JP", sans-serif;
+    background-color: rgb(203, 203, 203);
+    line-height: 1.6;
+    padding: 0;
+    margin: 0;
+}
+
+h1 {
+    color: black;
+    text-align: center;
+}
+
+form {
+    background-color: rgb(240, 240, 240);
+    max-width: 600px;
+    padding: 10px;
+    margin: 20px auto;
+    border: 1px solid #121316;
+    border-radius: 6px;
+}
+
+.form_group {
+    width: 100%;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+label {
+    width: 90%;
+    font-weight: bold;
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+input[type="text"],
+input[type="number"],
+input[type="email"],
+textarea,
+select {
+    width: 90%;
+    max-width: 550px;
+    box-sizing: border-box;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 5px;
+}
+
+.form_group button {
+    width: 80px;
+    align-self: flex-start;
+    background-color: rgb(68, 68, 252);
+    color: white;
+    border: none;
+    padding: 5px;
+    margin-top: 10px;
+    margin-left: 30px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
