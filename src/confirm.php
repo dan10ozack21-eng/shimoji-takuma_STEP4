@@ -53,7 +53,7 @@
         
         if (!empty($errors)) {
             foreach ($errors as $error) {
-                echo "<p style='color red;'>・" . htmlspecialchars($error, ENT_QUOTES, 'UTF-8') . "</p>";
+                echo "<p style='color: red;'>・" . htmlspecialchars($error, ENT_QUOTES, 'UTF-8') . "</p>";
             }
             echo "<p><a href='form.php'>戻って修正する</a></p>";
         } else {
