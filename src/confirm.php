@@ -47,13 +47,13 @@
         
         if (empty($address)) {
             $errors[] = "ご住所をご入力ください。";
-        } elseif (!preg_match("/^[ぁ-んァ-ヶー一-龠a-zA-Z0-9 　]+$/u", $address)) {
+        } elseif (!preg_match("/^[ぁ-んァ-ヶー一-龠a-zA-Z0-9 　-]+$/u", $address)) {
             $errors[] = "住所はひらがな・カタカナ・漢字・英字のみをご使用ください。";
         } 
         
         if (!empty($errors)) {
             foreach ($errors as $error) {
-                echo "<p style='color red;'>・" . htmlspecialchars($error, ENT_QUOTES, 'UTF-8') . "</p>";
+                echo "<p style='color: red;'>・" . htmlspecialchars($error, ENT_QUOTES, 'UTF-8') . "</p>";
             }
             echo "<p><a href='form.php'>戻って修正する</a></p>";
         } else {
